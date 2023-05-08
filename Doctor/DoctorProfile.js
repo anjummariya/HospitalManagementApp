@@ -1,37 +1,60 @@
 import React from 'react';
-import { View, Text, StyleSheet,TouchableOpacity } from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
+import { View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
-const DoctorCard = ({ name, speciality, experience,mail, phone, days,note }) => {
+const DoctorCard = ({ name, speciality, experience, mail, phone, days, note }) => {
+  const handlePhonePress = () => {
+    Linking.openURL(`tel:${phone}`);
+  };
+
+  const handleMailPress = () => {
+    Linking.openURL(`mailto:${mail}`);
+  };
+
   return (
     <View style={styles.card}>
       <Text style={styles.title}>{name}</Text>
-      <Text style={styles.text}>Speciality: <Text style={styles.bold}>{speciality}</Text></Text>
-      <Text style={styles.text}>Experience: <Text style={styles.bold}>{experience}</Text></Text>
-      <Text style={styles.text}>Email: <Text style={styles.bold} >{mail}</Text></Text>
-      <Text style={styles.text}>Phone: <Text style={styles.bold}>{phone}</Text></Text>
-      <Text style={styles.text}>Availability Days: <Text style={styles.bold}>{days}</Text></Text>
-      <Text style={styles.text}>Note: <Text style={styles.bold} >{note}</Text></Text>
-      
+      <Text style={styles.text}>
+        Speciality: <Text style={styles.bold}>{speciality}</Text>
+      </Text>
+      <Text style={styles.text}>
+        Experience: <Text style={styles.bold}>{experience}</Text>
+      </Text>
+      <TouchableOpacity onPress={handleMailPress}>
+        <Text style={styles.text}>
+          Email: <Text style={[styles.bold, styles.link]}>{mail}</Text>
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handlePhonePress}>
+        <Text style={styles.text}>
+          Phone: <Text style={[styles.bold, styles.link]}>{phone}</Text>
+        </Text>
+      </TouchableOpacity>
+      <Text style={styles.text}>
+        Availability Days: <Text style={styles.bold}>{days}</Text>
+      </Text>
+      <Text style={styles.text}>
+         <Text style={styles.i}>{note}</Text>
+      </Text>
     </View>
   );
 };
 
-const App = ({navigation}) => {
+const App = ({ navigation }) => {
   const doctor = {
     name: 'Dr. John Doe',
     speciality: 'Cardiologist',
     experience: '10 years',
-    mail: ' johndoe@gmail.com',
+    mail: 'johndoe@gmail.com',
     phone: '+1 123 456 7890',
     days: 'Monday - Friday',
-    note:'Book an appointment using the contact information above.'
+    note: 'Book an appointment using the contact information above.',
   };
 
   return (
     <View style={styles.container}>
-     <TouchableOpacity  onPress={() => navigation.navigate('DoctorHome')} style={styles.box}>
-            <Ionicons name="arrow-back" size={30} color="white" />
+      <TouchableOpacity onPress={() => navigation.navigate('DoctorHome')} style={styles.box}>
+        <Ionicons name="arrow-back" size={30} color="white" />
       </TouchableOpacity>
       <View style={styles.content}>
         <DoctorCard {...doctor} />
@@ -45,26 +68,31 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#da3e56',
     justifyContent: 'center',
+    alignItems: 'flex-start', // align items to the left
   },
-  content:{
+  content: {
     flex: 0,
     alignItems: 'center',
     justifyContent: 'center',
   },
   box:{
-    paddingLeft:20,
+    position: 'absolute',
+    top: 40,
+    left: 20,
+    zIndex: 1,
   },
   card: {
-    width: '90%',
+    width: '100%',
     backgroundColor: '#fff',
     padding: 20,
-    paddingVertical:50,
+    paddingVertical: 50,
     borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
     },
+    marginLeft:30,
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
@@ -78,13 +106,22 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 17,
-    marginBottom: 5,
+    marginBottom: 10,
     color: '#000',
-  
-  },
-  bold: {
     fontWeight: 'bold',
   },
+  bold: {
+   color:'grey',
+   fontWeight:'normal',
+  },
+  link: {
+    color: 'blue',
+    textDecorationLine: 'underline',
+  },
+  i:{
+    fontStyle:'italic',
+    color:'grey',
+  }
 });
 
 export default App;

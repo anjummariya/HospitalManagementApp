@@ -9,7 +9,7 @@ const JoinUsPage = ({navigation}) => {
             <Ionicons name="arrow-back" size={30} color="white" />
       </TouchableOpacity>
       <View style={styles.content}>
-      <Text style={styles.message}>Join us?</Text>
+      <Text style={styles.message}>Join us as Doctor?</Text>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.registerButton} onPress={() => navigation.navigate('DoctorSignUp')}>
           <Text style={styles.buttonText}>Register</Text>

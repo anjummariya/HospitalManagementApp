@@ -35,7 +35,7 @@ export default function House({ navigation }) {
             <TouchableOpacity style={styles.navigationButton} onPress={() => navigation.navigate('PrivacyPolicy')}>
               <Text style={{fontWeight:600, fontSize:18}}>Privacy Policy</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.navigationButton}>
+            <TouchableOpacity style={styles.navigationButton} onPress={() => navigation.navigate('bookedslots')}>
               <Text style={{fontWeight:600, fontSize:18}}>User History</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.navigationButton} onPress={() => navigation.navigate('Logout')}>

@@ -11,15 +11,12 @@ export default function DonorNotification({navigation}) {
             <Ionicons name="arrow-back" size={30} color="#da3e56" />
       </TouchableOpacity>
       <Text style={styles.Title}>Notifications</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('bookedslots')}>
-        <Text style={styles.Slots}>Check your slots here</Text>
-        </TouchableOpacity>
         <View style={styles.HomeWrapper}>
             <Text style={styles.HomeTitle}>Alert!!</Text>
             <Divider />
             <Text style={styles.HomeContent}>You are requested to donate blood</Text>
             <View style={styles.contain}>
-              <TouchableOpacity style={styles.button}>
+              <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('SlotBooking')}>
                 <Text style={styles.buttonText}>Accept</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.button}>

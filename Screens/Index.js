@@ -21,7 +21,7 @@ const HomePage = ({ navigation }) => {
           <Ionicons name="ios-book" size={48} color="black" />
           <Text style={styles.boxText}>Guide</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('BookBloodTest')}>
+        <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('LabsHome')}>
         <FontAwesome5 name="syringe" size={48} color="black" />
           <Text style={styles.boxText}>Book your Blood Test</Text>
         </TouchableOpacity>

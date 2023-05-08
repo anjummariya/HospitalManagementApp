@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,TouchableOpacity } from 'react-native';
+import {Ionicons} from '@expo/vector-icons';
 
 const DoctorCard = ({ name, speciality, experience,mail, phone, days,note }) => {
   return (
@@ -16,7 +17,7 @@ const DoctorCard = ({ name, speciality, experience,mail, phone, days,note }) => 
   );
 };
 
-const App = () => {
+const App = ({navigation}) => {
   const doctor = {
     name: 'Dr. John Doe',
     speciality: 'Cardiologist',
@@ -29,8 +30,12 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-     
-      <DoctorCard {...doctor} />
+     <TouchableOpacity  onPress={() => navigation.navigate('DoctorHome')} style={styles.box}>
+            <Ionicons name="arrow-back" size={30} color="white" />
+      </TouchableOpacity>
+      <View style={styles.content}>
+        <DoctorCard {...doctor} />
+      </View>
     </View>
   );
 };
@@ -39,10 +44,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#da3e56',
+    justifyContent: 'center',
+  },
+  content:{
+    flex: 0,
     alignItems: 'center',
     justifyContent: 'center',
   },
- 
+  box:{
+    paddingLeft:20,
+  },
   card: {
     width: '90%',
     backgroundColor: '#fff',

@@ -17,6 +17,7 @@ const FormScreen = ({navigation}) => {
     <ScrollView>
     <View style={styles.container}>
       <View style={styles.formContainer}>
+        <Text style={styles.title}>Donor Form</Text>
         <Text style={styles.label}>Name:</Text>
         <TextInput
           style={styles.input}
@@ -87,6 +88,12 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     width: '90%',
+  },
+  title:{
+    textAlign:'center',
+    color:'#da3e56',
+    fontWeight:800,
+    fontSize:20,
   },
   label: {
     fontSize: 16,

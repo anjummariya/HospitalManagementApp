@@ -7,16 +7,16 @@ const Table = ({navigation}) => {
   const data = [
     {  Task:'Donate', Date:'1/2/23', Time:'10:00am' },
     {  Task:'Recieve', Date:'1/2/23', Time:'10:00am' },
-    {  Task:'Recieve', Date:'1/2/23', Time:'10:00am' },
+    {  Task:'volunteer', Date:'1/2/23', Time:'10:00am' },
     {  Task:'Donate', Date:'1/2/23', Time:'10:00am' },
   ];
 
   return (
     <ScrollView contentContainerStyle={styles.wrapper}>
-      <TouchableOpacity  onPress={() => navigation.navigate('DonorNotification')} style={{paddingLeft:10}}>
+      <TouchableOpacity  onPress={() => navigation.navigate('House')} style={{paddingLeft:10}}>
             <Ionicons name="arrow-back" size={30} color="#da3e56" />
       </TouchableOpacity>
-      <Text style={styles.Title}>Booked Slots</Text>
+      <Text style={styles.Title}>History</Text>
       <View style={styles.container}>
         <View style={styles.row}>
           <Text style={styles.heading}>Sno</Text>

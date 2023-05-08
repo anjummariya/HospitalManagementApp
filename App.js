@@ -16,6 +16,7 @@ import Donor from './Donor/Donor';
 import DonorForm from './Donor/DonorForm';
 import DonorJoin from './Donor/DonorJoin';
 import bookedslots from './Donor/bookedslots';
+import SlotBooking from './Donor/SlotBooking';
 import Recipient from './Recipient_module/Recipient';
 import RecipientNotification from './Recipient_module/RecipientNotification';
 import RecipientForm from './Recipient_module/RecipientForm';
@@ -33,6 +34,8 @@ import DoctorHome from './Doctor/DoctorHome';
 import DoctorProfile from './Doctor/DoctorProfile';
 import BottomTabNavigator from './components/BottomtabNavigator';
 import DonorNotification from './Donor/DonorNotification';
+import LabsHome from './labs/labsHome';
+import LabsProfile from './labs/labsProfile';
 
 
 const Tab = createBottomTabNavigator();
@@ -77,7 +80,8 @@ export default function LoginSignupPage() {
             <Tab.Screen name="Donor" component={Donor}/>
             <Tab.Screen name="DonorForm" component={DonorForm} />
             <Tab.Screen name="DonorJoin" component={DonorJoin} />
-            <Tab.Screen name="DonorNotification" component={DonorNotification} />
+            <Tab.Screen name="DonorNotification" component={DonorNotification} />    
+            <Tab.Screen name="SlotBooking" component={SlotBooking} />
             <Tab.Screen name="bookedslots" component={bookedslots} />
             <Tab.Screen name="Recipient" component={Recipient}/>
             <Tab.Screen name="RecipientNotification" component={RecipientNotification} />            
@@ -95,6 +99,9 @@ export default function LoginSignupPage() {
             <Tab.Screen name="RegisterForCamp" component={RegisterForCamp} />
             <Tab.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
             <Tab.Screen name="RecipientForm" component={RecipientForm} />
+            <Tab.Screen name="LabsHome" component={LabsHome} />
+            <Tab.Screen name="LabsProfile" component={LabsProfile} />
+
 
 
           </Tab.Navigator>

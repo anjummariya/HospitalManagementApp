@@ -30,7 +30,7 @@ export default function BottomTabNavigator({navigation, routeName}) {
             </TouchableOpacity >
         </View>
         <View style={styles.iconContainer}>
-            <TouchableOpacity style={styles.iconContainerInner} onPress={()=>navigation.navigate("bookedslots")}>
+            <TouchableOpacity style={styles.iconContainerInner} onPress={()=>navigation.navigate("Recipient")}>
                 {ScreenName == "Recipient" ? (
                     <Image source={require("../assets/icons/cardiogram-active.png")} style={{width:30,height:30}} />
                 ) :(

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet , ScrollView} from 'react-native';
+import {Ionicons} from '@expo/vector-icons';
 
-const RecipientFormScreen = () => {
+const RecipientFormScreen = ({navigation}) => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('');
@@ -15,9 +16,13 @@ const RecipientFormScreen = () => {
   };
 
   return (
-    
+    <ScrollView>
       <View style={styles.container}> 
         <View style={styles.formContainer}>
+          <TouchableOpacity  onPress={() => navigation.navigate('Recipient')}>
+                <Ionicons name="arrow-back" size={30} color="#da3e56" />
+          </TouchableOpacity>
+          <Text style={{textAlign:'center', color:'#da3e56' , fontWeight:800, fontSize:20,}}>Recipient Form</Text>
           <Text style={styles.label}>Name:</Text>
           <TextInput
             style={styles.input}
@@ -74,12 +79,12 @@ const RecipientFormScreen = () => {
             value={adhaarID}
             onChangeText={setAdhaarID}
           />
-          <TouchableOpacity style={styles.submitButton} onPress={handleFormSubmit}>
+          <TouchableOpacity style={styles.submitButton} onPress={() => navigation.navigate('House')}>
             <Text style={styles.submitButtonText}>Submit</Text>
           </TouchableOpacity>
         </View>
       </View>
-    
+    </ScrollView>
   );
 };
 
@@ -118,7 +123,12 @@ const styles = StyleSheet.create({
   submitButton: {
     backgroundColor: '#da3e56',
     borderRadius: 5,
-    padding: 10
+    padding: 10,
+  },
+  submitButtonText:{
+    color:'white',
+    textAlign:'center',
+    fontWeight:'bold',
   },
 });
 export default RecipientFormScreen;
